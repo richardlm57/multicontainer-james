@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+   wordpress:
+     image: lrichardacr.azurecr.io/multicontainer-james:latest
+     volumes:
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
+      - storagetest:/var/www/html/wp-content/uploads
+     ports:
+       - "8000:80"
+     restart: always
